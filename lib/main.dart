@@ -30,11 +30,11 @@ class Application extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      _getRow(),
-                      _getRow(),
-                      _getRow(),
-                      _getRow(),
-                      _getRow(),
+                      _getRow("ac", "cl", "/", "%"),
+                      _getRow("9", "8", "7", "*"),
+                      _getRow("6", "5", "4", "-"),
+                      _getRow("1", "2", "3", "+"),
+                      _getRow("0", "00", ".", "="),
                     ],
                   ),
                 ),
@@ -46,36 +46,67 @@ class Application extends StatelessWidget {
     );
   }
 
-  Widget _getRow() {
+  Widget _getRow(String text1, String text2, String text3, String text4) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "1",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(width: 0, color: Colors.amber),
+              ),
+            ),
+            child: Text(
+              "$text1",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "1",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+                shape: CircleBorder(
+              side: BorderSide(width: 0, color: Colors.amber),
+            )),
+            child: Text(
+              "$text2",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "1",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(width: 0, color: Colors.amber),
+              ),
+            ),
+            child: Text(
+              "$text3",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "1",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(width: 0, color: Colors.amber),
+              ),
+            ),
+            child: Text(
+              "$text4",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
       ],
