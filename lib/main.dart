@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 void main() {
   runApp(Application());
@@ -17,21 +18,24 @@ class Application extends StatelessWidget {
                 flex: 3,
                 child: Container(
                   height: 400,
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.cyan),
+                  color: backgroundGrey,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: DecoratedBox(
-                  position: DecorationPosition.background,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(300)),
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    child: Text("df"),
+              Expanded(
+                flex: 7,
+                child: Container(
+                  color: backgroundGreyDark,
+                  height: 200,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _getRow(),
+                      _getRow(),
+                      _getRow(),
+                      _getRow(),
+                      _getRow(),
+                    ],
                   ),
                 ),
               )
@@ -39,6 +43,42 @@ class Application extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _getRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "1",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "1",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "1",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "1",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+      ],
     );
   }
 }
