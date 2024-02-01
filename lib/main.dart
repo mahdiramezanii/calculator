@@ -67,23 +67,46 @@ class Application extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "$text2",
-            style: TextStyle(color: Colors.white, fontSize: 25),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+                shape: CircleBorder(
+              side: BorderSide(width: 0, color: Colors.amber),
+            )),
+            child: Text(
+              "$text2",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "$text3",
-            style: TextStyle(color: Colors.white, fontSize: 25),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(width: 0, color: Colors.amber),
+              ),
+            ),
+            child: Text(
+              "$text3",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "$text4",
-            style: TextStyle(color: Colors.white, fontSize: 25),
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              shape: CircleBorder(
+                side: BorderSide(width: 0, color: Colors.amber),
+              ),
+            ),
+            child: Text(
+              "$text4",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
         ),
       ],
