@@ -94,6 +94,7 @@ class _ApplicationState extends State<Application> {
               });
             },
             style: TextButton.styleFrom(
+              backgroundColor: getColor(text1),
               shape: CircleBorder(
                 side: BorderSide(width: 0, color: getColor(text1)),
               ),
@@ -121,9 +122,10 @@ class _ApplicationState extends State<Application> {
               });
             },
             style: TextButton.styleFrom(
+                backgroundColor: getColor(text2),
                 shape: CircleBorder(
-              side: BorderSide(width: 0, color: getColor(text2)),
-            )),
+                  side: BorderSide(width: 0, color: getColor(text2)),
+                )),
             child: Text(
               "$text2",
               style: TextStyle(color: getTextColor(text2), fontSize: 25),
@@ -139,6 +141,7 @@ class _ApplicationState extends State<Application> {
               });
             },
             style: TextButton.styleFrom(
+              backgroundColor: getColor(text3),
               shape: CircleBorder(
                 side: BorderSide(width: 0, color: getColor(text3)),
               ),
@@ -170,6 +173,7 @@ class _ApplicationState extends State<Application> {
               });
             },
             style: TextButton.styleFrom(
+              backgroundColor: getColor(text4),
               shape: CircleBorder(
                 side: BorderSide(width: 0, color: getColor(text4)),
               ),
@@ -197,9 +201,9 @@ class _ApplicationState extends State<Application> {
 
   Color getColor(String text) {
     if (is_operator(text)) {
-      return Colors.cyan;
-    } else {
       return backgroundGreyDark;
+    } else {
+      return backgroundGrey;
     }
   }
 
