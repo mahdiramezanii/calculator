@@ -77,137 +77,116 @@ class _ApplicationState extends State<Application> {
 
   Widget _getRow(String text1, String text2, String text3, String text4) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (text1 == "ac") {
-                    textInput = "";
-                    result = "";
-                  } else {
-                    textInput = textInput + text1;
-                  }
-                });
-              },
-              child: Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: text1 == "ac" ? Colors.red : Colors.grey,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    "$text1",
-                    style: TextStyle(color: getTextColor(text1), fontSize: 25),
-                  ),
-                ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              if (text1 == "ac") {
+                textInput = "";
+                result = "";
+              } else {
+                textInput = textInput + text1;
+              }
+            });
+          },
+          child: Container(
+            width: 90,
+            height: 90,
+            decoration: BoxDecoration(
+              color: getColor(text1),
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
               ),
-            )
-            //  TextButton(
-            //   onPressed: () {
-            //     setState(() {
-            //       if (text1 == "ac") {
-            //         textInput = "";
-            //         result = "";
-            //       } else {
-            //         textInput = textInput + text1;
-            //       }
-            //     });
-            //   },
-            //   style: TextButton.styleFrom(
-            //     backgroundColor: getColor(text1),
-            //     shape: CircleBorder(
-            //       side: BorderSide(width: 0, color: getColor(text1)),
-            //     ),
-            //   ),
-            //   child: Text(
-            //     "$text1",
-            //     style: TextStyle(color: getTextColor(text1), fontSize: 25),
-            //   ),
-            // ),
             ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                if (text2 == "cl") {
-                  if (textInput.length > 0) {
-                    textInput = textInput.substring(0, textInput.length - 1);
-                  } else if (result.length > 0) {
-                    result = "";
-                  }
-                } else {
-                  textInput = textInput + text2;
+            child: Center(
+              child: Text(
+                "$text1",
+                style: TextStyle(
+                    color: getTextColor(text1),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              if (text2 == "cl") {
+                if (textInput.length > 0) {
+                  textInput = textInput.substring(0, textInput.length - 1);
+                } else if (result.length > 0) {
+                  result = "";
                 }
-              });
-            },
-            style: TextButton.styleFrom(
-                backgroundColor: getColor(text2),
-                shape: CircleBorder(
-                  side: BorderSide(width: 0, color: getColor(text2)),
-                )),
-            child: Text(
-              "$text2",
-              style: TextStyle(color: getTextColor(text2), fontSize: 25),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                textInput = textInput + text3;
-              });
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: getColor(text3),
-              shape: CircleBorder(
-                side: BorderSide(width: 0, color: getColor(text3)),
+              } else {
+                textInput = textInput + text2;
+              }
+            });
+          },
+          child: Container(
+            width: 90,
+            height: 90,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: getColor(text2)),
+            child: Center(
+              child: Text(
+                "$text2",
+                style: TextStyle(color: getTextColor(text3), fontSize: 25),
               ),
             ),
-            child: Text(
-              "$text3",
-              style: TextStyle(color: getTextColor(text3), fontSize: 25),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              textInput = textInput + text3;
+            });
+          },
+          child: Container(
+            width: 90,
+            height: 90,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: getColor(text3)),
+            child: Center(
+              child: Text(
+                "$text3",
+                style: TextStyle(color: getTextColor(text3), fontSize: 25),
+              ),
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                if (text4 == "=") {
-                  if (textInput.length > 0) {
-                    Parser p = Parser();
-                    Expression experetion = p.parse(textInput);
-                    ContextModel contextmodel = ContextModel();
-                    double eval =
-                        experetion.evaluate(EvaluationType.REAL, contextmodel);
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              if (text4 == "=") {
+                if (textInput.length > 0) {
+                  Parser p = Parser();
+                  Expression experetion = p.parse(textInput);
+                  ContextModel contextmodel = ContextModel();
+                  double eval =
+                      experetion.evaluate(EvaluationType.REAL, contextmodel);
 
-                    result = eval.toString();
-                  }
-                } else {
-                  textInput = textInput + text4;
+                  result = eval.toString();
                 }
-              });
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: getColor(text4),
-              shape: CircleBorder(
-                side: BorderSide(width: 0, color: getColor(text4)),
+              } else {
+                textInput = textInput + text4;
+              }
+            });
+          },
+          child: Container(
+            width: 90,
+            height: 90,
+            decoration: BoxDecoration(
+                color: getColor(text4),
+                borderRadius: BorderRadius.circular(20)),
+            child: Center(
+              child: Text(
+                "$text4",
+                style: TextStyle(color: getTextColor(text4), fontSize: 25),
               ),
-            ),
-            child: Text(
-              "$text4",
-              style: TextStyle(color: getTextColor(text4), fontSize: 25),
             ),
           ),
         ),
@@ -228,7 +207,13 @@ class _ApplicationState extends State<Application> {
 
   Color getColor(String text) {
     if (is_operator(text)) {
-      return backgroundGreyDark;
+      if (text == "ac") {
+        return Colors.red;
+      } else if (text == "=") {
+        return Colors.green;
+      } else {
+        return Colors.blue;
+      }
     } else {
       return backgroundGrey;
     }
@@ -236,7 +221,7 @@ class _ApplicationState extends State<Application> {
 
   Color getTextColor(String text) {
     if (is_operator(text)) {
-      return textGreen;
+      return Colors.white;
     } else {
       return Colors.white;
     }
