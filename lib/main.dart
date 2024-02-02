@@ -21,13 +21,13 @@ class _ApplicationState extends State<Application> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 19, 18, 18),
         body: SafeArea(
           child: Column(
             children: [
               Expanded(
                 flex: 3,
                 child: Container(
-                  color: backgroundGreyDark,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -54,7 +54,6 @@ class _ApplicationState extends State<Application> {
               Expanded(
                 flex: 7,
                 child: Container(
-                  color: backgroundGrey,
                   height: 200,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,30 +80,58 @@ class _ApplicationState extends State<Application> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                if (text1 == "ac") {
-                  textInput = "";
-                  result = "";
-                } else {
-                  textInput = textInput + text1;
-                }
-              });
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: getColor(text1),
-              shape: CircleBorder(
-                side: BorderSide(width: 0, color: getColor(text1)),
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (text1 == "ac") {
+                    textInput = "";
+                    result = "";
+                  } else {
+                    textInput = textInput + text1;
+                  }
+                });
+              },
+              child: Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: text1 == "ac" ? Colors.red : Colors.grey,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "$text1",
+                    style: TextStyle(color: getTextColor(text1), fontSize: 25),
+                  ),
+                ),
               ),
+            )
+            //  TextButton(
+            //   onPressed: () {
+            //     setState(() {
+            //       if (text1 == "ac") {
+            //         textInput = "";
+            //         result = "";
+            //       } else {
+            //         textInput = textInput + text1;
+            //       }
+            //     });
+            //   },
+            //   style: TextButton.styleFrom(
+            //     backgroundColor: getColor(text1),
+            //     shape: CircleBorder(
+            //       side: BorderSide(width: 0, color: getColor(text1)),
+            //     ),
+            //   ),
+            //   child: Text(
+            //     "$text1",
+            //     style: TextStyle(color: getTextColor(text1), fontSize: 25),
+            //   ),
+            // ),
             ),
-            child: Text(
-              "$text1",
-              style: TextStyle(color: getTextColor(text1), fontSize: 25),
-            ),
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
